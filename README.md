@@ -27,12 +27,12 @@ Add to your project's `Packages/manifest.json`:
 ### Option A — Package Manager UI
 `Window ▸ Package Manager ▸ + ▸ Add package from git URL…`
 ```
-https://github.com/REPLACE_ME/HttpKit.git
+https://github.com/thinhtranbmt/httpkit-unity.git
 ```
 
 ### Option B — manifest.json
 ```json
-"com.mycore.httpkit": "https://github.com/REPLACE_ME/HttpKit.git"
+"com.mycore.httpkit": "https://github.com/thinhtranbmt/httpkit-unity.git"
 ```
 
 Pin a version with a tag: `…/HttpKit.git#v0.1.0`.

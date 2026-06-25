@@ -4,9 +4,9 @@
   "displayName": "HttpKit",
   "description": "A small, reusable Unity HTTP client built on UnityWebRequest + UniTask. Rich HttpResult<T> error model, pluggable transport/serializer seams, response interceptors, and an optional key-value envelope helper. Zero game-specific dependencies.",
   "unity": "2021.3",
-  "documentationUrl": "https://github.com/REPLACE_ME/HttpKit#readme",
-  "changelogUrl": "https://github.com/REPLACE_ME/HttpKit/blob/main/CHANGELOG.md",
-  "licensesUrl": "https://github.com/REPLACE_ME/HttpKit/blob/main/LICENSE.md",
+  "documentationUrl": "https://github.com/thinhtranbmt/httpkit-unity#readme",
+  "changelogUrl": "https://github.com/thinhtranbmt/httpkit-unity/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/thinhtranbmt/httpkit-unity/blob/main/LICENSE.md",
   "dependencies": {
     "com.unity.nuget.newtonsoft-json": "3.2.2"
   },
