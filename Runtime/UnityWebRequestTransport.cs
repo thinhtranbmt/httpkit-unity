@@ -35,7 +35,10 @@ namespace HttpKit
                 return tcs.Task;
             }
 
-            if (timeoutSeconds > 0) uwr.timeout = timeoutSeconds;
+            if (timeoutSeconds > 0)
+            {
+                uwr.timeout = timeoutSeconds;
+            }
 
             if (_verbose)
             {

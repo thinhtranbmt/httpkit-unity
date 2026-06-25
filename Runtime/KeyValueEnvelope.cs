@@ -32,7 +32,10 @@ namespace HttpKit
         public static Dictionary<string, string> Flatten(string json)
         {
             var dict = new Dictionary<string, string>();
-            if (string.IsNullOrEmpty(json)) return dict;
+            if (string.IsNullOrEmpty(json))
+            {
+                return dict;
+            }
 
             var raw = JsonConvert.DeserializeObject<Dictionary<string, JToken>>(json);
             if (raw != null)

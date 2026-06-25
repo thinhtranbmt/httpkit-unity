@@ -21,7 +21,10 @@ namespace HttpKit
 
         public T Deserialize<T>(string json)
         {
-            if (string.IsNullOrEmpty(json)) return default;
+            if (string.IsNullOrEmpty(json))
+            {
+                return default;
+            }
             return (T)JsonConvert.DeserializeObject(json, typeof(T), _settings);
         }
 

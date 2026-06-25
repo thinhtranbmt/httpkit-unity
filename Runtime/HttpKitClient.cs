@@ -32,7 +32,10 @@ namespace HttpKit
 
         public void AddInterceptor(IResponseInterceptor interceptor)
         {
-            if (interceptor != null) _interceptors.Add(interceptor);
+            if (interceptor != null)
+            {
+                _interceptors.Add(interceptor);
+            }
         }
 
         // -------------------- verbs --------------------
@@ -91,8 +94,14 @@ namespace HttpKit
             // Interceptors observe every response (success or error).
             for (int i = 0; i < _interceptors.Count; i++)
             {
-                try { _interceptors[i].OnResponse(raw); }
-                catch (Exception e) { Debug.LogError($"[HttpKit] interceptor threw: {e.Message}"); }
+                try
+                {
+                    _interceptors[i].OnResponse(raw);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"[HttpKit] interceptor threw: {e.Message}");
+                }
             }
 
             if (raw.IsNetworkError)
