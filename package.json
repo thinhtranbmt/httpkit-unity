@@ -1,0 +1,30 @@
+{
+  "name": "com.mycore.httpkit",
+  "version": "0.1.0",
+  "displayName": "HttpKit",
+  "description": "A small, reusable Unity HTTP client built on UnityWebRequest + UniTask. Rich HttpResult<T> error model, pluggable transport/serializer seams, response interceptors, and an optional key-value envelope helper. Zero game-specific dependencies.",
+  "unity": "2021.3",
+  "documentationUrl": "https://github.com/REPLACE_ME/HttpKit#readme",
+  "changelogUrl": "https://github.com/REPLACE_ME/HttpKit/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/REPLACE_ME/HttpKit/blob/main/LICENSE.md",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.2"
+  },
+  "keywords": [
+    "http",
+    "rest",
+    "networking",
+    "unitask",
+    "webrequest"
+  ],
+  "author": {
+    "name": "MyCore"
+  },
+  "samples": [
+    {
+      "displayName": "Roxane Adapter (template)",
+      "description": "App-side integration example: shared client, 403 interceptor, key-value envelope adapter.",
+      "path": "Samples~/RoxaneAdapter"
+    }
+  ]
+}
