@@ -4,6 +4,13 @@ All notable changes to this package are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/), and this project adheres to
 [Semantic Versioning](https://semver.org/).
 
+## [0.2.1] - 2026-08-31
+### Fixed
+- `samples[].path` in `package.json` still pointed at the pre-rename sample folder, so Package
+  Manager listed a sample it could not import. Caught by the new packaging CI, which checks that
+  every declared sample path exists.
+- Sample `displayName` still carried the old game's name.
+
 ## [0.2.0] - 2026-08-31
 ### Fixed
 - Declare `com.cysharp.unitask` in `package.json`. The runtime assembly referenced the
