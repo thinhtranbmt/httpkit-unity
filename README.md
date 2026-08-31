@@ -14,12 +14,16 @@ Zero game-specific dependencies — install it in any Unity project.
 |---|---|
 | Unity 2021.3+ | — |
 | **Newtonsoft.Json** (`com.unity.nuget.newtonsoft-json`) | Auto-resolved — declared in `package.json` (Unity registry). Only used by the default `NewtonsoftJsonSerializer`; swap `IJsonSerializer` to drop it. |
-| **UniTask** (`com.cysharp.unitask`) | **Must be installed separately.** UniTask is distributed via Git/OpenUPM, not the Unity registry, so UPM can't auto-resolve it. See below. |
+| **UniTask** (`com.cysharp.unitask`) | Declared in `package.json`. Resolves automatically once the OpenUPM scoped registry is added — see Install. |
 
-### Installing UniTask (required, do this first)
-Add to your project's `Packages/manifest.json`:
+### OpenUPM scoped registry (required, do this first)
+UniTask is declared in this package's `dependencies`, but it is published on OpenUPM rather than
+the Unity registry. Add the registry once per project and UPM resolves UniTask by itself — in
+`Packages/manifest.json`:
 ```json
-"com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
+"scopedRegistries": [
+  { "name": "package.openupm.com", "url": "https://package.openupm.com", "scopes": [ "com.cysharp" ] }
+]
 ```
 
 ## Install
@@ -35,7 +39,7 @@ https://github.com/thinhtranbmt/httpkit-unity.git
 "com.mycore.httpkit": "https://github.com/thinhtranbmt/httpkit-unity.git"
 ```
 
-Pin a version with a tag: `…/HttpKit.git#v0.1.0`.
+Pin a version with a tag: `…/HttpKit.git#v0.2.0`.
 
 ## Usage
 
@@ -91,7 +95,7 @@ var http = new HttpKitClient(
 | `KeyValueEnvelope.cs` | **Optional** helper for flat `{ key: value }` response bodies (`IKeyValueEnvelope` + `Flatten`/`Deserialize`) |
 
 ## Samples
-Import **Roxane Adapter (template)** from the Package Manager (`Samples` tab) for an app-side
+Import **Backend Adapter (template)** from the Package Manager (`Samples` tab) for an app-side
 integration example — a shared client, a 403 interceptor, and a key-value envelope adapter.
 
 ## License

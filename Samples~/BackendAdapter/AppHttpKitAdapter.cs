@@ -1,7 +1,7 @@
 // =====================================================================
 // SAMPLE / TEMPLATE — NOT COMPILED (Samples~ folder).
 //
-// Shows how Roxane would adopt HttpKit and, in doing so, DELETE the two warts
+// Shows how the app would adopt HttpKit and, in doing so, DELETE the two warts
 // in the old NetworkSystem:
 //   1) the hard-coded typeof(T) envelope parsing in WebRequest.cs
 //   2) the InGameEvent 403 handling baked into the transport
@@ -24,7 +24,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
-namespace Roxane.Net
+namespace MyGame.Net
 {
     // ---------------------------------------------------------------
     // 1) The envelope flatten that used to be hard-coded in WebRequest is now the
@@ -64,7 +64,7 @@ namespace Roxane.Net
     // ---------------------------------------------------------------
     // A single shared client for the whole app.
     // ---------------------------------------------------------------
-    public static class RoxaneHttp
+    public static class AppHttp
     {
         public static readonly HttpKitClient Client = Build();
 
@@ -95,7 +95,7 @@ namespace Roxane.Net
         {
             // DataToolKit only ever asks for DataToolResponseData here.
             HttpResult<Dictionary<string, string>> res =
-                await RoxaneHttp.Client.GetAsync(url, headers, deserialize: DataToolEnvelope.Flatten);
+                await AppHttp.Client.GetAsync(url, headers, deserialize: DataToolEnvelope.Flatten);
 
             if (!res.IsSuccess)
             {
@@ -109,8 +109,8 @@ namespace Roxane.Net
 
     // ---------------------------------------------------------------
     // Plain typed call example (replaces NetworkHandler.PostAsync<T>):
-    //   var res = await RoxaneHttp.Client.PostAsync<LoginResponse>(
-    //                 ServiceShared.GetLoginURL(), payload, RoxaneHttp.AuthHeaders());
+    //   var res = await AppHttp.Client.PostAsync<LoginResponse>(
+    //                 ServiceShared.GetLoginURL(), payload, AppHttp.AuthHeaders());
     //   if (!res.IsSuccess) { handle res.Error; }
     //   else use(res.Data);
     // ---------------------------------------------------------------
